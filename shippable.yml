@@ -20,3 +20,17 @@ after_script:
     - ./node_modules/.bin/istanbul cover grunt -- -u tdd
     - ./node_modules/.bin/istanbul report cobertura --dir  ./shippable/codecoverage/
     - echo $BUILD_NUMBER > ~/buildConfig.txt
+
+
+build:
+  post_ci:
+    - docker push 127436723527.dkr.ecr.us-east-1.amazonaws.com/shippable-sko2016/micro-api:tag
+
+integrations:
+  hub:
+    - integrationName: ecr-shippable-sko2016
+      type: ecr
+      region: us-east-1
+      branches:
+        only:
+          - master
