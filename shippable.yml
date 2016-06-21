@@ -24,7 +24,7 @@ after_script:
 
 build:
   post_ci:
-    - docker push 127436723527.dkr.ecr.us-east-1.amazonaws.com/shippable-sko2016/micro-api:tag
+    - docker push 127436723527.dkr.ecr.us-east-1.amazonaws.com/shippable-sko2016/micro-api:master.$BUILD_NUMBER
 
 integrations:
   hub:
